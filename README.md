@@ -1,4 +1,4 @@
- Quick Start
+# Quick Start
 Prerequisites
 
 Node.js (v18 or higher)
@@ -32,15 +32,20 @@ cp .env.example .env
 
 # Start development server
 npm run dev
- Environment Configuration
+
+
+# Environment Configuration
+
 Backend (.env)
-envPORT=5000
+PORT=5000
 MONGODB_URI=mongodb://localhost:27017/vet-chatbot
 GEMINI_API_KEY=your_gemini_api_key_here
 FRONTEND_URL=http://localhost:5173
 NODE_ENV=development
+
 Frontend (.env)
-envVITE_API_URL=http://localhost:5000/api
+
+VITE_API_URL=http://localhost:5000/api
 
 ## Chat UI
 
