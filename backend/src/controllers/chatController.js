@@ -1,3 +1,4 @@
+import { handleAppointmentFlow } from '../handler/appointmentHandler.js';
 import Conversation from '../models/Conversation.js';
 import aiService from '../services/aiService.js';
 import { v4 as uuidv4 } from 'uuid';
@@ -18,7 +19,10 @@ export const sendMessage = async (req, res, next) => {
       conversation = new Conversation({
         sessionId,
         messages: [],
-        context: context || {}
+        context: {
+          sdk: context || {},
+          flow: null
+        }
       });
     }
 
@@ -27,6 +31,34 @@ export const sendMessage = async (req, res, next) => {
       content: message,
       timestamp: new Date()
     });
+
+    //appointment flow handle
+    if(conversation.context?.flow?.mode ==='appointment'){
+      const reply= await handleAppointmentFlow(conversation , message);
+
+      await conversation.save();
+      return res.json({
+        sessionId,
+        message: reply,
+        timestamp: new Date()
+      })
+    }
+
+    //new appointment detection
+    if (aiService.detectAppointmentIntent(message)) {
+      conversation.context.flow = {
+        mode: 'appointment',
+        step: 'petOwnerName',
+        appointmentData: {}
+      };
+
+      await conversation.save();
+
+      return res.json({
+        sessionId,
+        message: "Sure! Let's book an appointment 🐾\nWhat is the pet owner's name?"
+      });
+    }
 
     const aiResponse = await aiService.generateResponse(message, conversation.messages);
 

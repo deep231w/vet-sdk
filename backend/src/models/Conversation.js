@@ -8,10 +8,22 @@ const conversationSchema = new mongoose.Schema({
     timestamp: { type: Date, default: Date.now }
   }],
   context: {
-    userId: String,
-    userName: String,
-    petName: String,
-    source: String
+    sdk: {
+      userId: String,
+      userName: String,
+      petName: String,
+      source: String
+    },
+    flow: {
+      mode: String,
+      step: String,
+      appointmentData: {
+        petOwnerName: String,
+        petName: String,
+        phoneNumber: String,
+        preferredDateTime: String
+      }
+    }
   },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }

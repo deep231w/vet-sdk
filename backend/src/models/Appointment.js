@@ -5,7 +5,7 @@ const appointmentSchema = new mongoose.Schema({
   petOwnerName: { type: String, required: true },
   petName: { type: String, required: true },
   phoneNumber: { type: String, required: true },
-  preferredDateTime: { type: Date, required: true },
+  preferredDateTime: { type: String, required: true },
   status: { type: String, enum: ['pending', 'confirmed', 'cancelled'], default: 'pending' },
   createdAt: { type: Date, default: Date.now }
 });
