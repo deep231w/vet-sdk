@@ -88,6 +88,15 @@ VITE_API_URL=http://localhost:5000/api
             <li>Surgery</li>
         </ul>
         </div>
+        <!-- Chatbot Configuration (Optional) -->
+        <script>
+            window.VetChatbotConfig = {
+                petOwnerName: "John",
+                petName: "Buddy",
+                phoneNumber:"8393899032",
+                source: "test-html"
+            };
+        </script>
         
         <!-- Load Chatbot SDK -->
         <script src="https://vet-sdk.vercel.app/chatbot-loader.js"></script>
