@@ -61,7 +61,40 @@ VITE_API_URL=http://localhost:5000/api
     Your appointment has been booked! Our team will contact you shortly
  This means the Appointment has been booked successfully .
 
- 
+## EXAMPLE SETUP
+
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vet Chatbot Test</title>
+        
+    </head>
+    <body>
+        <div class="content">
+        <h1>🐾 My Veterinary Clinic Website</h1>
+        <p>Welcome to our clinic! We provide comprehensive care for your beloved pets.</p>
+        <p>The chatbot should appear in the bottom-right corner. Try asking questions about pet care or booking an appointment!</p>
+        </div>
+
+        <div class="content">
+        <h2>Our Services</h2>
+        <ul>
+            <li>General Health Checkups</li>
+            <li>Vaccinations</li>
+            <li>Emergency Care</li>
+            <li>Dental Care</li>
+            <li>Surgery</li>
+        </ul>
+        </div>
+        
+        <!-- Load Chatbot SDK -->
+        <script src="https://vet-sdk.vercel.app/chatbot-loader.js"></script>
+    </body>
+</html>
+
+
 ## Chat UI
 
 ![Chat UI Screenshot](screenshots/chat-ui.png)
