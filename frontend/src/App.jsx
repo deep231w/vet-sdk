@@ -63,6 +63,15 @@ function App({isEmbed}) {
     }
   };
 
+  const params = new URLSearchParams(window.location.search);
+
+  const sdkConfig = {
+    userName: params.get("userName"),
+    petName: params.get("petName"),
+    phoneNumber: params.get("phoneNumber"),
+    source: params.get("source"),
+  };
+
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!inputValue.trim() || isLoading) return;
@@ -87,7 +96,9 @@ function App({isEmbed}) {
         body: JSON.stringify({
           message: inputValue,
           sessionId,
-          context: config
+          context: {
+            sdk: sdkConfig
+          }
         })
       });
 
