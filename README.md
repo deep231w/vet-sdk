@@ -47,6 +47,21 @@ Frontend (.env)
 
 VITE_API_URL=http://localhost:5000/api
 
+## INSTRUSCTION TO BOOK AN APPOINTMENT
+ First you need to send some keword booking related that keword includes - 
+    ['appointment', 'schedule', 'book', 'visit', 'consultation', 'see a vet', 'meet']
+
+ and after detect one of these keyword it will start asking few questions those questiones are -
+    1-Sure! Let's book an appointment 🐾\nWhat is the pet owner's name?
+    2-Great! What's your pet's name?
+    3-Please share your phone number 📞
+    4-When would you like to visit? (date & time)
+
+ Then  after booked the message will recieve -
+    Your appointment has been booked! Our team will contact you shortly
+ This means the Appointment has been booked successfully .
+
+ 
 ## Chat UI
 
 ![Chat UI Screenshot](screenshots/chat-ui.png)
