@@ -6,14 +6,14 @@
 
   const params = new URLSearchParams({
     embed: "1",
-    userName: config.userName || "",
+    userName: config.petOwnerName || "",
     petName: config.petName || "",
     phoneNumber: config.phoneNumber || "",
     source: config.source || ""
   });
 
   const iframe = document.createElement("iframe");
-  iframe.src = `https://vet-sdk.vercel.app/?${params.toString()}`;
+  iframe.src = `https://vet-sdk-rh95.onrender.com/?${params.toString()}`;
 
   iframe.style.position = "fixed";
   iframe.style.bottom = "20px";

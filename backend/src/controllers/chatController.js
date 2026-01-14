@@ -7,6 +7,7 @@ export const sendMessage = async (req, res, next) => {
   try {
     const { message, sessionId: providedSessionId, context } = req.body;
 
+    console.log("context in sendmessage - ", context);
     if (!message || message.trim().length === 0) {
       return res.status(400).json({ error: 'Message is required' });
     }
@@ -29,7 +30,10 @@ export const sendMessage = async (req, res, next) => {
     conversation.messages.push({
       role: 'user',
       content: message,
-      timestamp: new Date()
+      timestamp: new Date(),
+      context: {
+          sdk: context || {}
+        }
     });
 
     //appointment flow handle

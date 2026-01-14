@@ -9,9 +9,9 @@ const conversationSchema = new mongoose.Schema({
   }],
   context: {
     sdk: {
-      userId: String,
-      userName: String,
+      petOwnerName: String,
       petName: String,
+      phoneNumber: String,
       source: String
     },
     flow: {
