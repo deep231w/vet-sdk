@@ -1,21 +1,16 @@
-(function() {
-  const script = document.currentScript;
-  const config = window.VetChatbotConfig || {};
-  
-  const root = document.createElement('div');
-  root.id = 'vet-chatbot-root';
-  document.body.appendChild(root);
+(function () {
+  if (window.__VET_CHATBOT_LOADED__) return;
+  window.__VET_CHATBOT_LOADED__ = true;
 
-  const scriptSrc = script.src;
-  const baseUrl = scriptSrc.substring(0, scriptSrc.lastIndexOf('/'));
-  
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.href = `${baseUrl}/assets/index.css`;
-  document.head.appendChild(link);
+  const iframe = document.createElement("iframe");
+  iframe.src = "http://localhost:5173/?embed=1";
+  iframe.style.position = "fixed";
+  iframe.style.bottom = "20px";
+  iframe.style.right = "20px";
+  iframe.style.width = "360px";
+  iframe.style.height = "520px";
+  iframe.style.border = "none";
+  iframe.style.zIndex = "999999";
 
-  const appScript = document.createElement('script');
-  appScript.type = 'module';
-  appScript.src = `${baseUrl}/assets/index.js`;
-  document.head.appendChild(appScript);
+  document.body.appendChild(iframe);
 })();

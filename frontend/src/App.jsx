@@ -3,7 +3,9 @@ import './App.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
-function App() {
+function App({isEmbed}) {
+   
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
@@ -11,6 +13,18 @@ function App() {
   const [sessionId, setSessionId] = useState(null);
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
+
+  //  if (isEmbed) {
+  //   return (
+  //     <div className="chat-container embed">
+  //       {!isOpen && (
+  //         <button className="chat-toggle" onClick={() => setIsOpen(true)}>
+  //           💬
+  //         </button>
+  //       )}
+  //     </div>
+  //   );
+  // }
 
   useEffect(() => {
     const config = window.VetChatbotConfig || {};
@@ -102,7 +116,7 @@ function App() {
   };
 
   return (
-    <div className="chat-container">
+    <div className={`chat-container ${isEmbed ? 'embed' : ''}`}>
       {!isOpen && (
         <button className="chat-toggle" onClick={() => setIsOpen(true)}>
           💬

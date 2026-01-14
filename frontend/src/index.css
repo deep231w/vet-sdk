@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 a {
   font-weight: 500;
@@ -22,12 +22,43 @@ a:hover {
   color: #535bf2;
 }
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+} */
+
+/* Default: full app */
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* 🔥 EMBED MODE */
+body.embed-mode {
+  background: transparent;
+  min-height: auto;
+  display: block;
+}
+
+body.embed-mode #root {
+  all: unset;
+}
+.chat-container.embed {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999999;
+}
+
+/* 🔥 EMBED MODE OVERRIDES */
+body.embed-mode,
+body.embed-mode html,
+body.embed-mode :root {
+  background: transparent !important;
+  color: inherit;
 }
 
 h1 {
